@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лог-парсер</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!-- Джаваскрипт для подсчета статистики -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Лог-парсер</h1>
+    
+    <div class="container">
+        <div class="panel">
+            <h2>Загрузка логов</h2>
+            <input type="file" id="logFile" accept=".log,.txt">
+            <p>Или вставьте логи вручную:</p>
+            <textarea id="manualLogInput" rows="10" placeholder="Введите логи здесь..."></textarea>
+            <button id="loadLogsBtn">Загрузить логи</button>
+            <input type="number" id="logCountInput" placeholder="Количество логов" min="1" value="10">
+            <button id="generateLogsBtn">Сгенерировать логи</button>
+        </div>
+        
+        <div class="panel">
+            <h2>Фильтрация</h2>
+            <input type="text" id="filterRegex" placeholder="Регулярное выражение для фильтрации">
+            <button id="filterBtn">Применить фильтр</button>
+            <button id="resetFilterBtn">Сбросить фильтр</button>
+            <p>Найдено строк: <span id="lineCount">0</span></p>
+        </div>
+    </div>
+    
+    <div class="panel">
+        <h2>Результаты</h2>
+        <div id="logOutput"></div>
+    </div>
+    
+    <div class="panel">
+        <h2>Статистика</h2>
+        <div class="chart-container">
+            <canvas id="statsChart"></canvas>
+        </div>
+    </div>
+    
+    <script src="parser.js"></script>
+</body>
+</html>
